@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        h2 {
+            font-size: 28px;
+            margin-top: 30px;
+            color: #4caf50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        a {
+            text-decoration: none;
+            color: #4caf50;
+            padding: 8px 15px;
+            border: 2px solid #4caf50;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #4caf50;
+            color: white;
+        }
+        .logout {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .logout:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Welcome, {{ user.username }}</h1>
+        <p>Your role: <strong>Admin</strong></p>
+
+        <h2>Admin Tools</h2>
+        <ul>
+            <li><a href="/users">View All Users</a></li><br>
+            <li><a href="/add_user">Add a New User</a></li><br>
+        </ul>
+
+        <p><a href="/logout" class="logout">Logout</a></p>
+    </div>
+</body>
+</html>

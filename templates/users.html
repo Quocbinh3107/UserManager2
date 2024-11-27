@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: #333333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            background-color: #ffffff;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        table th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #4caf50;
+        }
+
+        a, button {
+            font-size: 14px;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: white;
+            background-color: #4caf50;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        a:hover, button:hover {
+            background-color: #45a049;
+        }
+
+        .action-buttons a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Manage Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role }}</td>
+                <td class="action-buttons">
+                    <a href="/edit_user/{{ user.id }}">Edit</a>
+                    <a href="/delete_user/{{ user.id }}" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/admin_dashboard">Back to Dashboard</a>
+</body>
+</html>
